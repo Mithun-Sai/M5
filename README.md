@@ -1,4 +1,4 @@
-EX-21-POINTERS
+#EX-21-POINTERS
 # AIM:
 Write a C program to convert a 23.65 into 25 using pointer
 
@@ -9,34 +9,33 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+int main() {
+    double num = 23.65;
+    double *ptr = &num;
+
+    *ptr = 25.0;
+
+    printf("Modified value: %.2f\n", num);
+    return 0;
+}
+```
 
 ## OUTPUT:
- 	
-
-
-
-
-
-
-
-
-
-
+![alt text](ex21.png)	
 
 ## RESULT:
 Thus the program to convert a 23.65 into 25 using pointer has been executed successfully.
  
  
-
-
 # EX-22-FUNCTIONS AND STORAGE CLASS
 
 ## AIM:
-
 Write a C program to calculate the Product of first 12 natural numbers using Recursion
 
 ## ALGORITHM:
-
 1.	Define a recursive function calculateProduct that takes an integer parameter n.
 2.	Return n multiplied by the result of the calculateProduct function called with n - 1.
 3.	Declare an integer variable n and an unsigned long long variable product.
@@ -45,50 +44,78 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
-## OUTPUT:
-         		
-## RESULT:
+```
+#include <stdio.h>
 
+unsigned long long calculateProduct(int n) {
+    if (n == 1)
+        return 1;
+    return n * calculateProduct(n - 1);
+}
+
+int main() {
+    int n = 12;
+    unsigned long long product = calculateProduct(n);
+
+    printf("Product of first %d natural numbers is: %llu\n", n, product);
+    return 0;
+}
+```
+
+## OUTPUT:
+![alt text](ex22.png)
+
+## RESULT:
 Thus the program has been executed successfully.
  
  
-
-
 # EX-23-ARRAYS AND ITS OPERATIONS
 
 ## AIM:
-
 Write C Program to find Sum of each row of a Matrix
 
 ## ALGORITHM:
-
 1.	Declare and initialize the matrix with the desired values.
 2.	Create a loop to iterate through each row of the matrix.
 3.	Inside the loop, calculate the sum of the elements in each row.
 4.	Print the sum for each row.
 
 ## PROGRAM:
+```
+#include <stdio.h>
 
+int main() {
+    int matrix[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    int rows = 3, cols = 3;
 
+    for (int i = 0; i < rows; i++) {
+        int sum = 0;
+        for (int j = 0; j < cols; j++) {
+            sum += matrix[i][j];
+        }
+        printf("Sum of row %d: %d\n", i + 1, sum);
+    }
+
+    return 0;
+}
+```
 
 ## OUTPUT
+![alt text](ex23.png)
 
-
- 
- 
-
- ## RESULT
- 
+## RESULT
 
 
 # EX-24-STRINGS
 
 ## AIM:
-
 Write C program for the below pyramid string pattern. Enter a string: PROGRAM Enter number of rows: 5 P R O G R A M P R O G R A M P R O G R A M
 
 ## ALGORITHM:
-
 1.	Input the number of rows for the pyramid (e.g., num_rows).
 2.	Initialize variables:i for the row count (starting from 1),j for the character count (starting from 1)
 3.	Start a loop for i from 1 to num_rows (for each row of the pyramid).
@@ -96,25 +123,43 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+#include <string.h>
 
+int main() {
+    char str[100];
+    int rows;
 
- ## OUTPUT
+    printf("Enter a string: ");
+    scanf("%s", str);
 
- 
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
+
+    int len = strlen(str);
+
+    for (int i = 1; i <= rows; i++) {
+        for (int j = 0; j < i; j++) {
+            printf("%c ", str[j % len]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+```
+
+## OUTPUT
+![alt text](ex24.png)
 
 ## RESULT
-
 Thus the C program to String process executed successfully
- 
-
- 
-.
-
 
 
 # EX -25 –DISPLAYING ARRAYS USING POINTERS
-## AIM
 
+## AIM
 Write a c program to read and display an array of any 6 integer elements using pointer
 
 ## ALGORITHM
@@ -132,13 +177,31 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+int main() {
+    int arr[10], *parr = arr, n = 6;
+
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", parr + i);
+    }
+
+    printf("The array elements are: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", *(parr + i));
+    }
+    printf("\n");
+
+    return 0;
+}
+```
 
 ## OUTPUT
-
- 
+![alt text](ex25.png)
 
 ## RESULT
-
 Thus the C program to read and display an array of any 6 integer elements using pointer has been executed
 
 
